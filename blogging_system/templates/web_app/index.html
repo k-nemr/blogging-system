@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Blogs</title>
+</head>
+
+<body>
+
+<a href="{% url 'new' %}">Create New Blog</a>
+
+<div id="content">
+    <h1>Blogs</h1>
+    {% if blogs_list %}
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>author</th>
+                <th>subject</th>
+                <th>body</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for blog in blogs_list %}
+                <tr>
+                    <th>{{ blog.id }}</th>
+                    <th>{{ blog.author }}</th>
+                    <td>{{ blog.subject }}</td>
+                    <td>{{ blog.body }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No blogs are available.</p>
+    {% endif %}
+</div>
+
+</body>
+</html>

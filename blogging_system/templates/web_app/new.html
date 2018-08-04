@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Create Blog</title>
+</head>
+<body>
+
+<div id="content">
+    <h1>Add blog</h1>
+    <form action="{% url 'create' %}" method="post">
+        {% csrf_token %}
+        <div>
+            <div class="form-row">
+                <div>
+                    <label class="required" for="id_author">Author:</label>
+                    <input type="text" name="author" maxlength="32" required id="id_author">
+                    <br/><br/>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div>
+                    <label class="required" for="id_subject">Subject:</label>
+                    <input type="text" name="subject" maxlength="256" required id="id_subject">
+                    <br/><br/>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div>
+                    <label class="required" for="id_body">Body:</label>
+                    <textarea name="body" id="id_body" rows="10" required cols="40"></textarea>
+                    <br/><br/>
+                </div>
+            </div>
+            <div class="submit-row">
+                <input type="submit" value="Create" name="_create">
+            </div>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
